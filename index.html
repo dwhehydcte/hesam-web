@@ -1,724 +1,708 @@
 <!doctype html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-
-  <meta name="theme-color" content="#1769e8">
-  <meta name="description" content="وب‌سایت رسمی HESAM">
-
-  <title>HESAM | خلاقیت، کیفیت، راهکار برای آینده</title>
-
-  <style>
-    :root{
-      --blue:#1769e8;
-      --blue2:#0d55cf;
-      --ink:#142033;
-      --muted:#65738a;
-      --line:#e7edf6;
-      --soft:#f4f8ff;
-      --white:#fff;
-      --shadow:0 16px 45px rgba(20,65,130,.09);
-    }
-
-    *{
-      box-sizing:border-box;
-    }
-
-    html{
-      scroll-behavior:smooth;
-    }
-
-    body{
-      margin:0;
-      font-family:Tahoma,Arial,sans-serif;
-      color:var(--ink);
-      background:#fff;
-      line-height:1.9;
-    }
-
-    a{
-      text-decoration:none;
-      color:inherit;
-    }
-
-    button,
-    input{
-      font:inherit;
-    }
-
-    button{
-      cursor:pointer;
-    }
-
-    .container{
-      width:min(1120px,calc(100% - 32px));
-      margin:auto;
-    }
-
-    header{
-      position:sticky;
-      top:0;
-      z-index:20;
-      background:rgba(255,255,255,.95);
-      backdrop-filter:blur(12px);
-      border-bottom:1px solid var(--line);
-    }
-
-    .nav{
-      height:78px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
-    }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      font-weight:900;
-      font-size:23px;
-      color:var(--blue);
-      direction:ltr;
-    }
-
-    .logo{
-      width:42px;
-      height:48px;
-      position:relative;
-      display:grid;
-      place-items:center;
-      color:#fff;
-      font-size:24px;
-      font-weight:900;
-      filter:drop-shadow(0 7px 12px rgba(23,105,232,.2));
-    }
-
-    .logo:before{
-      content:"";
-      position:absolute;
-      inset:5px 3px 0;
-      border-radius:9px 9px 18px 18px;
-      background:linear-gradient(145deg,#19a8ff,#1454d7 62%,#083da9);
-      clip-path:polygon(
-        50% 0,
-        64% 18%,
-        82% 10%,
-        75% 39%,
-        93% 77%,
-        50% 100%,
-        7% 77%,
-        25% 39%,
-        18% 10%,
-        36% 18%
-      );
-    }
-
-    .logo span{
-      position:relative;
-      z-index:1;
-      margin-top:8px;
-    }
-
-    nav{
-      display:flex;
-      align-items:center;
-      gap:34px;
-      color:#536074;
-      font-size:14px;
-      font-weight:700;
-    }
-
-    nav a{
-      padding:25px 0;
-      position:relative;
-    }
-
-    nav a:hover,
-    nav a.active{
-      color:var(--blue);
-    }
-
-    nav a.active:after{
-      content:"";
-      position:absolute;
-      height:2px;
-      background:var(--blue);
-      left:0;
-      right:0;
-      bottom:15px;
-    }
-
-    .btn{
-      border:0;
-      border-radius:8px;
-      padding:13px 24px;
-      font-weight:800;
-      transition:.2s;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-    }
-
-    .btn-primary{
-      background:linear-gradient(135deg,#1973f1,#1259d7);
-      color:#fff;
-      box-shadow:0 10px 22px rgba(23,105,232,.2);
-    }
-
-    .btn-primary:hover{
-      transform:translateY(-2px);
-      box-shadow:0 13px 26px rgba(23,105,232,.28);
-    }
-
-    .btn-outline{
-      background:#fff;
-      color:var(--blue);
-      border:1px solid var(--blue);
-    }
-
-    .hero{
-      padding:76px 0 58px;
-      overflow:hidden;
-    }
-
-    .hero-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      align-items:center;
-      gap:45px;
-    }
-
-    .welcome{
-      display:inline-flex;
-      background:#eef5ff;
-      color:var(--blue);
-      padding:6px 15px;
-      border-radius:30px;
-      font-size:13px;
-      font-weight:800;
-      margin-bottom:18px;
-    }
-
-    h1{
-      font-size:48px;
-      line-height:1.35;
-      margin:0 0 20px;
-      font-weight:900;
-      letter-spacing:-1px;
-    }
-
-    h1 span,
-    .section-title span{
-      color:var(--blue);
-    }
-
-    .hero p{
-      font-size:16px;
-      color:var(--muted);
-      max-width:590px;
-      margin:0 0 28px;
-    }
-
-    .actions{
-      display:flex;
-      gap:14px;
-      flex-wrap:wrap;
-    }
-
-    .hero-art{
-      min-height:380px;
-      display:grid;
-      place-items:center;
-      position:relative;
-    }
-
-    .glow{
-      position:absolute;
-      width:350px;
-      height:350px;
-      background:radial-gradient(
-        circle,
-        #dbeaff 0,
-        rgba(219,234,255,.45) 38%,
-        transparent 70%
-      );
-      border-radius:50%;
-    }
-
-    .big-logo{
-      width:245px;
-      height:280px;
-      position:relative;
-      z-index:1;
-      display:grid;
-      place-items:center;
-    }
-
-    .big-logo:before{
-      content:"";
-      position:absolute;
-      inset:12px 0 35px;
-      background:linear-gradient(145deg,#1bb4ff,#1163e5 55%,#08399e);
-      clip-path:polygon(
-        50% 0,
-        65% 18%,
-        84% 10%,
-        76% 39%,
-        96% 79%,
-        50% 100%,
-        4% 79%,
-        24% 39%,
-        16% 10%,
-        35% 18%
-      );
-      filter:drop-shadow(0 25px 22px rgba(12,78,190,.25));
-    }
-
-    .big-logo b{
-      position:relative;
-      color:#fff;
-      font-size:80px;
-      z-index:2;
-      margin-top:45px;
-    }
-
-    .hero-word{
-      position:absolute;
-      bottom:10px;
-      color:#0c5ddd;
-      font-size:40px;
-      font-weight:900;
-      letter-spacing:7px;
-      direction:ltr;
-    }
-
-    .features{
-      padding:52px 0;
-    }
-
-    .eyebrow{
-      text-align:center;
-      color:var(--blue);
-      font-weight:900;
-      font-size:13px;
-    }
-
-    .section-title{
-      text-align:center;
-      font-size:31px;
-      margin:6px 0 34px;
-    }
-
-    .cards{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:17px;
-    }
-
-    .card{
-      border:1px solid var(--line);
-      border-radius:13px;
-      padding:25px 19px 20px;
-      text-align:center;
-      background:#fff;
-      box-shadow:0 8px 25px rgba(30,70,120,.035);
-      transition:.2s;
-    }
-
-    .card:hover{
-      transform:translateY(-5px);
-      box-shadow:var(--shadow);
-    }
-
-    .icon{
-      width:52px;
-      height:52px;
-      border-radius:12px;
-      background:#edf4ff;
-      color:var(--blue);
-      display:grid;
-      place-items:center;
-      margin:0 auto 15px;
-      font-size:23px;
-      font-weight:900;
-    }
-
-    .card h3{
-      font-size:16px;
-      margin:0 0 9px;
-    }
-
-    .card p{
-      font-size:12px;
-      color:var(--muted);
-      margin:0 0 18px;
-    }
-
-    .card .btn{
-      width:100%;
-      padding:9px 12px;
-      font-size:12px;
-    }
-
-    .stats{
-      margin:28px 0 34px;
-      background:#f8fbff;
-      border:1px solid #dce8fa;
-      border-radius:14px;
-      padding:24px;
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-    }
-
-    .stat{
-      text-align:center;
-      border-left:1px solid #d9e3f2;
-    }
-
-    .stat:last-child{
-      border-left:0;
-    }
-
-    .stat strong{
-      display:block;
-      font-size:24px;
-      direction:ltr;
-    }
-
-    .stat span{
-      font-size:12px;
-      color:var(--muted);
-    }
-
-    .cta{
-      background:linear-gradient(110deg,#f4f8ff,#fbfdff);
-      border-radius:15px;
-      border:1px solid #edf2f9;
-      padding:28px 35px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:25px;
-      margin-bottom:58px;
-    }
-
-    .cta h2{
-      font-size:22px;
-      margin:0 0 5px;
-      color:var(--blue);
-    }
-
-    .cta p{
-      margin:0;
-      color:var(--muted);
-      font-size:13px;
-    }
-
-    footer{
-      border-top:1px solid var(--line);
-      padding:45px 0 25px;
-    }
-
-    .footer-grid{
-      display:grid;
-      grid-template-columns:1.5fr 1fr 1fr 1fr;
-      gap:40px;
-    }
-
-    footer h3{
-      font-size:15px;
-      margin:0 0 15px;
-    }
-
-    footer p,
-    footer a{
-      color:var(--muted);
-      font-size:12px;
-    }
-
-    footer a{
-      display:block;
-      margin:7px 0;
-    }
-
-    .contact div{
-      margin:8px 0;
-      color:var(--muted);
-      font-size:12px;
-    }
-
-    .social{
-      display:flex;
-      gap:8px;
-      margin-top:15px;
-      direction:ltr;
-    }
-
-    .social a{
-      width:32px;
-      height:32px;
-      border-radius:50%;
-      background:#edf5ff;
-      color:var(--blue);
-      display:grid;
-      place-items:center;
-      font-weight:900;
-    }
-
-    .copyright{
-      text-align:center;
-      color:#8994a6;
-      font-size:11px;
-      border-top:1px solid var(--line);
-      margin-top:30px;
-      padding-top:18px;
-    }
-
-    .top{
-      position:fixed;
-      bottom:18px;
-      right:18px;
-      width:43px;
-      height:43px;
-      border:0;
-      border-radius:50%;
-      background:var(--blue);
-      color:#fff;
-      cursor:pointer;
-      font-size:20px;
-      box-shadow:0 8px 20px rgba(23,105,232,.25);
-      z-index:30;
-    }
-
-    /* صفحات داخلی */
-
-    .page{
-      display:none;
-      min-height:70vh;
-      padding:70px 0;
-    }
-
-    .page.active{
-      display:block;
-    }
-
-    .page-box{
-      max-width:760px;
-      margin:auto;
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius:18px;
-      padding:35px;
-      box-shadow:var(--shadow);
-    }
-
-    .page-box h2{
-      color:var(--blue);
-      font-size:30px;
-      margin-top:0;
-    }
-
-    .page-box p{
-      color:var(--muted);
-      font-size:15px;
-    }
-
-    .back-btn{
-      margin-top:25px;
-    }
-
-    /* فرم ثبت نام */
-
-    .register-form{
-      max-width:550px;
-      margin:25px auto 0;
-    }
-
-    .form-group{
-      margin-bottom:17px;
-      text-align:right;
-    }
-
-    .form-group label{
-      display:block;
-      font-size:13px;
-      font-weight:800;
-      margin-bottom:7px;
-    }
-
-    .form-group input{
-      width:100%;
-      padding:13px 15px;
-      border:1px solid #dce5f2;
-      border-radius:9px;
-      outline:none;
-      transition:.2s;
-      background:#fff;
-    }
-
-    .form-group input:focus{
-      border-color:var(--blue);
-      box-shadow:0 0 0 3px rgba(23,105,232,.08);
-    }
-
-    .register-form .btn{
-      width:100%;
-      margin-top:5px;
-    }
-
-    .success{
-      display:none;
-      background:#eaf8ef;
-      color:#19733a;
-      border:1px solid #c9ecd5;
-      border-radius:10px;
-      padding:12px;
-      margin-top:18px;
-      text-align:center;
-      font-size:13px;
-    }
-
-    /* ریسپانسیو */
-
-    @media(max-width:850px){
-
-      nav{
-        display:none;
-      }
-
-      .nav{
-        height:68px;
-      }
-
-      .hero{
-        padding-top:45px;
-      }
-
-      .hero-grid{
-        grid-template-columns:1fr;
-        text-align:center;
-      }
-
-      .hero p{
-        margin-left:auto;
-        margin-right:auto;
-      }
-
-      .actions{
-        justify-content:center;
-      }
-
-      .hero-art{
-        min-height:300px;
-      }
-
-      .big-logo{
-        transform:scale(.82);
-      }
-
-      h1{
-        font-size:36px;
-      }
-
-      .cards{
-        grid-template-columns:repeat(2,1fr);
-      }
-
-      .stats{
-        grid-template-columns:repeat(2,1fr);
-        gap:18px;
-      }
-
-      .stat:nth-child(2){
-        border-left:0;
-      }
-
-      .stat:nth-child(3),
-      .stat:nth-child(4){
-        border-top:1px solid #d9e3f2;
-        padding-top:18px;
-      }
-
-      .cta{
-        flex-direction:column;
-        text-align:center;
-      }
-
-      .footer-grid{
-        grid-template-columns:repeat(2,1fr);
-      }
-    }
-
-    @media(max-width:520px){
-
-      .container{
-        width:min(100% - 22px,1120px);
-      }
-
-      .brand{
-        font-size:20px;
-      }
-
-      .brand .logo{
-        width:35px;
-        height:41px;
-      }
-
-      h1{
-        font-size:31px;
-      }
-
-      .hero p{
-        font-size:14px;
-      }
-
-      .cards{
-        grid-template-columns:1fr;
-      }
-
-      .stats{
-        grid-template-columns:1fr 1fr;
-        padding:18px 10px;
-      }
-
-      .stat{
-        border-left:0!important;
-      }
-
-      .stat:nth-child(n+3){
-        border-top:1px solid #d9e3f2!important;
-        padding-top:15px;
-      }
-
-      .footer-grid{
-        grid-template-columns:1fr;
-        text-align:center;
-      }
-
-      .social{
-        justify-content:center;
-      }
-
-      .cta{
-        padding:25px 18px;
-      }
-
-      .page{
-        padding:40px 0;
-      }
-
-      .page-box{
-        padding:24px 18px;
-      }
-
-      .page-box h2{
-        font-size:24px;
-      }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#1769e8">
+<title>HESAM | خلاقیت، کیفیت، راهکار برای آینده</title>
+
+<style>
+:root{
+  --blue:#1769e8;
+  --blue2:#0d55cf;
+  --ink:#142033;
+  --muted:#65738a;
+  --line:#e7edf6;
+  --soft:#f4f8ff;
+  --white:#fff;
+  --shadow:0 16px 45px rgba(20,65,130,.09);
+}
+
+*{box-sizing:border-box}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family:Tahoma,Arial,sans-serif;
+  color:var(--ink);
+  background:#fff;
+  line-height:1.9;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+button,input{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+.container{
+  width:min(1120px,calc(100% - 32px));
+  margin:auto;
+}
+
+/* HEADER */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+
+.nav{
+  min-height:78px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:900;
+  font-size:23px;
+  color:var(--blue);
+  direction:ltr;
+}
+
+.logo{
+  width:42px;
+  height:48px;
+  position:relative;
+  display:grid;
+  place-items:center;
+  color:#fff;
+  font-size:24px;
+  font-weight:900;
+}
+
+.logo:before{
+  content:"";
+  position:absolute;
+  inset:5px 3px 0;
+  border-radius:9px 9px 18px 18px;
+  background:linear-gradient(145deg,#19a8ff,#1454d7 62%,#083da9);
+  clip-path:polygon(
+    50% 0,64% 18%,82% 10%,75% 39%,
+    93% 77%,50% 100%,7% 77%,25% 39%,
+    18% 10%,36% 18%
+  );
+}
+
+.logo span{
+  position:relative;
+  z-index:1;
+  margin-top:8px;
+}
+
+nav{
+  display:flex;
+  align-items:center;
+  gap:30px;
+  color:#536074;
+  font-size:14px;
+  font-weight:700;
+}
+
+nav a{
+  padding:25px 0;
+  position:relative;
+}
+
+nav a:hover,
+nav a.active{
+  color:var(--blue);
+}
+
+.btn{
+  border:0;
+  cursor:pointer;
+  border-radius:8px;
+  padding:13px 24px;
+  font-weight:800;
+  transition:.2s;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+}
+
+.btn-primary{
+  background:linear-gradient(135deg,#1973f1,#1259d7);
+  color:#fff;
+  box-shadow:0 10px 22px rgba(23,105,232,.2);
+}
+
+.btn-primary:hover{
+  transform:translateY(-2px);
+}
+
+.btn-outline{
+  background:#fff;
+  color:var(--blue);
+  border:1px solid var(--blue);
+}
+
+.btn-danger{
+  background:#fff0f0;
+  color:#d92d20;
+  border:1px solid #ffcaca;
+}
+
+/* HERO */
+
+.hero{
+  padding:76px 0 58px;
+}
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:45px;
+}
+
+.welcome{
+  display:inline-flex;
+  background:#eef5ff;
+  color:var(--blue);
+  padding:6px 15px;
+  border-radius:30px;
+  font-size:13px;
+  font-weight:800;
+  margin-bottom:18px;
+}
+
+h1{
+  font-size:48px;
+  line-height:1.35;
+  margin:0 0 20px;
+  font-weight:900;
+}
+
+h1 span,
+.section-title span{
+  color:var(--blue);
+}
+
+.hero p{
+  font-size:16px;
+  color:var(--muted);
+  max-width:590px;
+  margin:0 0 28px;
+}
+
+.actions{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.hero-art{
+  min-height:380px;
+  display:grid;
+  place-items:center;
+  position:relative;
+}
+
+.glow{
+  position:absolute;
+  width:350px;
+  height:350px;
+  background:radial-gradient(
+    circle,
+    #dbeaff 0,
+    rgba(219,234,255,.45) 38%,
+    transparent 70%
+  );
+  border-radius:50%;
+}
+
+.big-logo{
+  width:245px;
+  height:280px;
+  position:relative;
+  z-index:1;
+  display:grid;
+  place-items:center;
+}
+
+.big-logo:before{
+  content:"";
+  position:absolute;
+  inset:12px 0 35px;
+  background:linear-gradient(
+    145deg,#1bb4ff,#1163e5 55%,#08399e
+  );
+  clip-path:polygon(
+    50% 0,65% 18%,84% 10%,76% 39%,
+    96% 79%,50% 100%,4% 79%,24% 39%,
+    16% 10%,35% 18%
+  );
+  filter:drop-shadow(0 25px 22px rgba(12,78,190,.25));
+}
+
+.big-logo b{
+  position:relative;
+  color:#fff;
+  font-size:80px;
+  z-index:2;
+  margin-top:45px;
+}
+
+.hero-word{
+  position:absolute;
+  bottom:10px;
+  color:#0c5ddd;
+  font-size:40px;
+  font-weight:900;
+  letter-spacing:7px;
+  direction:ltr;
+}
+
+/* SECTIONS */
+
+.features{
+  padding:52px 0;
+}
+
+.eyebrow{
+  text-align:center;
+  color:var(--blue);
+  font-weight:900;
+  font-size:13px;
+}
+
+.section-title{
+  text-align:center;
+  font-size:31px;
+  margin:6px 0 34px;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:17px;
+}
+
+.card{
+  border:1px solid var(--line);
+  border-radius:13px;
+  padding:25px 19px 20px;
+  text-align:center;
+  background:#fff;
+  box-shadow:0 8px 25px rgba(30,70,120,.035);
+  transition:.2s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:var(--shadow);
+}
+
+.icon{
+  width:52px;
+  height:52px;
+  border-radius:12px;
+  background:#edf4ff;
+  color:var(--blue);
+  display:grid;
+  place-items:center;
+  margin:0 auto 15px;
+  font-size:23px;
+  font-weight:900;
+}
+
+.card h3{
+  font-size:16px;
+  margin:0 0 9px;
+}
+
+.card p{
+  font-size:12px;
+  color:var(--muted);
+  margin:0 0 18px;
+}
+
+.card .btn{
+  width:100%;
+  padding:9px 12px;
+  font-size:12px;
+}
+
+/* STATS */
+
+.stats{
+  margin:28px 0 34px;
+  background:#f8fbff;
+  border:1px solid #dce8fa;
+  border-radius:14px;
+  padding:24px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+}
+
+.stat{
+  text-align:center;
+  border-left:1px solid #d9e3f2;
+}
+
+.stat:last-child{
+  border-left:0;
+}
+
+.stat strong{
+  display:block;
+  font-size:24px;
+  direction:ltr;
+}
+
+.stat span{
+  font-size:12px;
+  color:var(--muted);
+}
+
+/* CTA */
+
+.cta{
+  background:linear-gradient(110deg,#f4f8ff,#fbfdff);
+  border-radius:15px;
+  border:1px solid #edf2f9;
+  padding:28px 35px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
+  margin-bottom:58px;
+}
+
+.cta h2{
+  font-size:22px;
+  margin:0 0 5px;
+  color:var(--blue);
+}
+
+.cta p{
+  margin:0;
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* PAGES */
+
+.page{
+  display:none;
+  min-height:65vh;
+  padding:60px 0;
+}
+
+.page.active{
+  display:block;
+}
+
+.page-box{
+  max-width:750px;
+  margin:auto;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:35px;
+  box-shadow:var(--shadow);
+}
+
+.page-box h2{
+  margin-top:0;
+  color:var(--blue);
+  font-size:30px;
+}
+
+.page-box p{
+  color:var(--muted);
+}
+
+.info-list{
+  padding:0;
+  list-style:none;
+}
+
+.info-list li{
+  background:#f7faff;
+  border:1px solid #e4edfa;
+  padding:14px;
+  border-radius:10px;
+  margin:10px 0;
+}
+
+.back{
+  margin-top:25px;
+}
+
+/* FORM */
+
+.form-group{
+  margin-bottom:17px;
+}
+
+.form-group label{
+  display:block;
+  font-weight:700;
+  font-size:13px;
+  margin-bottom:7px;
+}
+
+.form-group input{
+  width:100%;
+  padding:13px;
+  border:1px solid #dbe4f0;
+  border-radius:9px;
+  outline:none;
+  background:#fff;
+}
+
+.form-group input:focus{
+  border-color:var(--blue);
+  box-shadow:0 0 0 3px rgba(23,105,232,.08);
+}
+
+.form-message{
+  display:none;
+  margin-top:15px;
+  padding:12px;
+  border-radius:9px;
+  background:#ecfff3;
+  color:#16743b;
+  font-size:13px;
+}
+
+/* FOOTER */
+
+footer{
+  border-top:1px solid var(--line);
+  padding:45px 0 25px;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr 1fr;
+  gap:40px;
+}
+
+footer h3{
+  font-size:15px;
+  margin:0 0 15px;
+}
+
+footer p,
+footer a{
+  color:var(--muted);
+  font-size:12px;
+}
+
+footer a{
+  display:block;
+  margin:7px 0;
+}
+
+.contact div{
+  margin:8px 0;
+  color:var(--muted);
+  font-size:12px;
+}
+
+.phone{
+  direction:ltr;
+  display:inline-block;
+  color:var(--blue)!important;
+  font-weight:900;
+  font-size:16px!important;
+}
+
+.social{
+  display:flex;
+  gap:8px;
+  margin-top:15px;
+  direction:ltr;
+}
+
+.social a{
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  background:#edf5ff;
+  color:var(--blue);
+  display:grid;
+  place-items:center;
+  font-weight:900;
+}
+
+.copyright{
+  text-align:center;
+  color:#8994a6;
+  font-size:11px;
+  border-top:1px solid var(--line);
+  margin-top:30px;
+  padding-top:18px;
+}
+
+.top{
+  position:fixed;
+  bottom:18px;
+  right:18px;
+  width:43px;
+  height:43px;
+  border:0;
+  border-radius:50%;
+  background:var(--blue);
+  color:#fff;
+  cursor:pointer;
+  font-size:20px;
+  box-shadow:0 8px 20px rgba(23,105,232,.25);
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+  nav{
+    display:none;
+  }
+
+  .nav{
+    min-height:68px;
+  }
+
+  .hero{
+    padding-top:45px;
+  }
+
+  .hero-grid{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+
+  .hero p{
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .actions{
+    justify-content:center;
+  }
+
+  .hero-art{
+    min-height:300px;
+  }
+
+  .big-logo{
+    transform:scale(.82);
+  }
+
+  h1{
+    font-size:36px;
+  }
+
+  .cards{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .stats{
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+  }
+
+  .stat:nth-child(2){
+    border-left:0;
+  }
+
+  .stat:nth-child(3),
+  .stat:nth-child(4){
+    border-top:1px solid #d9e3f2;
+    padding-top:18px;
+  }
+
+  .cta{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .footer-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:520px){
+
+  .container{
+    width:min(100% - 22px,1120px);
+  }
+
+  .brand{
+    font-size:20px;
+  }
+
+  .brand .logo{
+    width:35px;
+    height:41px;
+  }
+
+  h1{
+    font-size:31px;
+  }
+
+  .hero p{
+    font-size:14px;
+  }
+
+  .cards{
+    grid-template-columns:1fr;
+  }
+
+  .stats{
+    grid-template-columns:1fr 1fr;
+    padding:18px 10px;
+  }
+
+  .stat{
+    border-left:0!important;
+  }
+
+  .stat:nth-child(n+3){
+    border-top:1px solid #d9e3f2!important;
+    padding-top:15px;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+
+  .social{
+    justify-content:center;
+  }
+
+  .cta{
+    padding:25px 18px;
+  }
+
+  .page-box{
+    padding:24px 18px;
+  }
+}
+</style>
 </head>
 
 <body>
@@ -726,20 +710,20 @@
 <header>
   <div class="container nav">
 
-    <a class="brand" href="#" onclick="showHome();return false;">
+    <a class="brand" href="#" onclick="showPage('home');return false;">
       <div class="logo"><span>H</span></div>
       <span>HESAM</span>
     </a>
 
     <nav>
-      <a class="active" href="#" onclick="showHome();return false;">خانه</a>
-      <a href="#about" onclick="showHome();">درباره ما</a>
-      <a href="#features" onclick="showHome();">ویژگی‌ها</a>
-      <a href="#services" onclick="showHome();">خدمات</a>
-      <a href="#contact" onclick="showHome();">تماس با ما</a>
+      <a href="#" class="active" onclick="showPage('home');return false;">خانه</a>
+      <a href="#" onclick="showPage('about');return false;">درباره ما</a>
+      <a href="#" onclick="showPage('features');return false;">ویژگی‌ها</a>
+      <a href="#" onclick="showPage('services');return false;">خدمات</a>
+      <a href="#" onclick="showPage('contact');return false;">تماس با ما</a>
     </nav>
 
-    <button class="btn btn-primary" onclick="showRegister()">
+    <button class="btn btn-primary" onclick="showPage('register')">
       👤 ورود / ثبت‌نام
     </button>
 
@@ -747,399 +731,828 @@
 </header>
 
 
-<!-- صفحه اصلی -->
+<!-- HOME -->
 
-<main id="homePage">
+<main id="home" class="page active">
 
-  <section class="hero">
+<section class="hero">
+<div class="container hero-grid">
 
-    <div class="container hero-grid">
+<div>
 
-      <div>
+<div class="welcome">
+👋 به جمع ما خوش آمدید
+</div>
 
-        <div class="welcome">
-          👋 به جمع ما خوش آمدید
-        </div>
+<h1>
+خلاقیت، کیفیت،
+<br>
+<span>راهکار برای آینده</span>
+</h1>
 
-        <h1>
-          خلاقیت، کیفیت،
-          <br>
-          <span>راهکار برای آینده</span>
-        </h1>
+<p>
+ما در HESAM با ترکیب خلاقیت و تکنولوژی،
+تجربه‌ای متفاوت برای شما خلق می‌کنیم.
+همراه ما باشید تا آینده‌ای بهتر بسازیم.
+</p>
 
-        <p>
-          ما در HESAM با ترکیب خلاقیت و تکنولوژی،
-          تجربه‌ای متفاوت برای شما خلق می‌کنیم.
-          همراه ما باشید تا آینده‌ای بهتر بسازیم.
-        </p>
+<div class="actions">
 
-        <div class="actions">
+<button class="btn btn-primary" onclick="showPage('register')">
+شروع کنید ←
+</button>
 
-          <button class="btn btn-primary" onclick="showRegister()">
-            شروع کنید ←
-          </button>
+<button class="btn btn-outline" onclick="showPage('about')">
+ⓘ بیشتر بدانید
+</button>
 
-          <button class="btn btn-outline" onclick="goToAbout()">
-            ⓘ بیشتر بدانید
-          </button>
+</div>
 
-        </div>
+</div>
 
-      </div>
 
+<div class="hero-art">
 
-      <div class="hero-art">
+<div class="glow"></div>
 
-        <div class="glow"></div>
+<div class="big-logo">
+<b>H</b>
+<div class="hero-word">HESAM</div>
+</div>
 
-        <div class="big-logo">
-          <b>H</b>
-          <div class="hero-word">HESAM</div>
-        </div>
+</div>
 
-      </div>
+</div>
+</section>
 
-    </div>
 
-  </section>
+<section class="features">
 
+<div class="container">
 
-  <section class="features" id="features">
+<div class="eyebrow">
+★ ویژگی‌های ما
+</div>
 
-    <div class="container">
+<h2 class="section-title">
+چرا <span>ما</span> رو انتخاب کنید؟
+</h2>
 
-      <div class="eyebrow">
-        ★ ویژگی‌های ما
-      </div>
 
-      <h2 class="section-title">
-        چرا <span>ما</span> رو انتخاب کنید؟
-      </h2>
+<div class="cards">
 
+<!-- SPEED -->
 
-      <div class="cards" id="services">
+<article class="card">
 
-        <!-- سرعت -->
+<div class="icon">◒</div>
 
-        <article class="card">
+<h3>
+سرعت بالا
+</h3>
 
-          <div class="icon">◒</div>
+<p>
+با استفاده از تکنولوژی‌های روز،
+سرعت و عملکرد بی‌نظیری را تجربه کنید.
+</p>
 
-          <h3>سرعت بالا</h3>
+<button class="btn btn-primary"
+onclick="showPage('speed')">
+بیشتر
+</button>
 
-          <p>
-            با استفاده از تکنولوژی‌های روز،
-            سرعت و عملکرد بی‌نظیری را تجربه کنید.
-          </p>
+</article>
 
-          <button class="btn btn-primary"
-                  onclick="showPage('speedPage')">
-            بیشتر
-          </button>
 
-        </article>
+<!-- SECURITY -->
 
+<article class="card">
 
-        <!-- امنیت -->
+<div class="icon">⬟</div>
 
-        <article class="card">
+<h3>
+امنیت تضمینی
+</h3>
 
-          <div class="icon">⬟</div>
+<p>
+امنیت اطلاعات شما برای ما در اولویت است
+و با روش‌های مدرن محافظت می‌کنیم.
+</p>
 
-          <h3>امنیت تضمینی</h3>
+<button class="btn btn-primary"
+onclick="showPage('security')">
+بیشتر
+</button>
 
-          <p>
-            امنیت اطلاعات شما برای ما در اولویت است
-            و با جدیدترین روش‌ها محافظت می‌کنیم.
-          </p>
+</article>
 
-          <button class="btn btn-primary"
-                  onclick="showPage('securityPage')">
-            بیشتر
-          </button>
 
-        </article>
+<!-- DESIGN -->
 
+<article class="card">
 
-        <!-- طراحی -->
+<div class="icon">≋</div>
 
-        <article class="card">
+<h3>
+طراحی مدرن
+</h3>
 
-          <div class="icon">≋</div>
+<p>
+طراحی‌های زیبا و کاربردی که تجربه
+لذت‌بخشی برای شما فراهم می‌کنند.
+</p>
 
-          <h3>طراحی مدرن</h3>
+<button class="btn btn-primary"
+onclick="showPage('design')">
+بیشتر
+</button>
 
-          <p>
-            طراحی‌های زیبا و کاربردی که تجربه
-            لذت‌بخشی برای شما فراهم می‌کنند.
-          </p>
+</article>
 
-          <button class="btn btn-primary"
-                  onclick="showPage('designPage')">
-            بیشتر
-          </button>
 
-        </article>
+<!-- SUPPORT -->
 
+<article class="card">
 
-        <!-- پشتیبانی -->
+<div class="icon">◉</div>
 
-        <article class="card">
+<h3>
+پشتیبانی 24/7
+</h3>
 
-          <div class="icon">◉</div>
+<p>
+تیم پشتیبانی ما آماده پاسخگویی
+به سوالات و مشکلات شماست.
+</p>
 
-          <h3>پشتیبانی 24/7</h3>
+<button class="btn btn-primary"
+onclick="showPage('contact')">
+تماس با پشتیبانی
+</button>
 
-          <p>
-            تیم پشتیبانی ما در تمام ساعات شبانه‌روز
-            آماده پاسخگویی به شماست.
-          </p>
+</article>
 
-          <button class="btn btn-primary"
-                  onclick="showPage('supportPage')">
-            تماس با پشتیبانی
-          </button>
+</div>
 
-        </article>
 
-      </div>
+<div class="stats">
 
+<div class="stat">
+<strong>1250+</strong>
+<span>کاربر فعال</span>
+</div>
 
-      <div class="stats">
+<div class="stat">
+<strong>320+</strong>
+<span>پروژه موفق</span>
+</div>
 
-        <div class="stat">
-          <strong>1250+</strong>
-          <span>کاربر فعال</span>
-        </div>
+<div class="stat">
+<strong>98%</strong>
+<span>رضایت مشتری</span>
+</div>
 
-        <div class="stat">
-          <strong>320+</strong>
-          <span>پروژه موفق</span>
-        </div>
+<div class="stat">
+<strong>24/7</strong>
+<span>پشتیبانی</span>
+</div>
 
-        <div class="stat">
-          <strong>98%</strong>
-          <span>رضایت مشتری</span>
-        </div>
+</div>
 
-        <div class="stat">
-          <strong>24/7</strong>
-          <span>پشتیبانی</span>
-        </div>
 
-      </div>
+<div class="cta">
 
+<div>
 
-      <div class="cta" id="start">
+<h2>
+آماده شروع هستید؟
+</h2>
 
-        <div>
+<p>
+همین حالا به جمع کاربران HESAM بپیوندید.
+</p>
 
-          <h2>
-            آماده شروع هستید؟
-          </h2>
+</div>
 
-          <p>
-            همین حالا به جمع هزاران کاربر ما بپیوندید
-            و تجربه‌ای متفاوت را با HESAM آغاز کنید.
-          </p>
+<button class="btn btn-primary"
+onclick="showPage('register')">
+همین حالا ثبت‌نام کنید ←
+</button>
 
-        </div>
+</div>
 
-        <button class="btn btn-primary"
-                onclick="showRegister()">
-          همین حالا ثبت‌نام کنید ←
-        </button>
+</div>
 
-      </div>
-
-    </div>
-
-  </section>
+</section>
 
 </main>
 
 
-<!-- صفحه ثبت نام -->
+<!-- REGISTER PAGE -->
 
-<section class="page" id="registerPage">
+<section id="register" class="page">
 
-  <div class="container">
+<div class="container">
 
-    <div class="page-box">
+<div class="page-box">
 
-      <h2>👤 ثبت‌نام در HESAM</h2>
+<h2>
+👤 ثبت‌نام در HESAM
+</h2>
 
-      <p>
-        برای ثبت‌نام، اطلاعات خود را وارد کنید.
-      </p>
+<p>
+برای ایجاد حساب، اطلاعات زیر را وارد کنید.
+</p>
 
+<form onsubmit="registerUser(event)">
 
-      <form class="register-form"
-            onsubmit="registerUser(event)">
+<div class="form-group">
 
-        <div class="form-group">
+<label>
+نام
+</label>
 
-          <label for="firstName">
-            نام
-          </label>
+<input
+id="firstName"
+type="text"
+placeholder="مثلاً حسام"
+required
+>
 
-          <input
-            id="firstName"
-            type="text"
-            placeholder="مثلاً حسام"
-            required
-          >
-
-        </div>
-
-
-        <div class="form-group">
-
-          <label for="lastName">
-            نام خانوادگی
-          </label>
-
-          <input
-            id="lastName"
-            type="text"
-            placeholder="مثلاً احمدی"
-            required
-          >
-
-        </div>
+</div>
 
 
-        <div class="form-group">
+<div class="form-group">
 
-          <label for="phone">
-            شماره موبایل
-          </label>
+<label>
+نام خانوادگی
+</label>
 
-          <input
-            id="phone"
-            type="tel"
-            inputmode="numeric"
-            placeholder="09121234567"
-            pattern="09[0-9]{9}"
-            required
-          >
+<input
+id="lastName"
+type="text"
+placeholder="نام خانوادگی"
+required
+>
 
-        </div>
+</div>
 
 
-        <button class="btn btn-primary" type="submit">
-          ثبت‌نام
-        </button>
+<div class="form-group">
 
-        <div class="success" id="registerSuccess">
-          ثبت‌نام شما با موفقیت انجام شد! 🎉
-        </div>
+<label>
+شماره موبایل
+</label>
 
-      </form>
+<input
+id="phone"
+type="tel"
+inputmode="numeric"
+placeholder="09123456789"
+required
+>
 
-
-      <button class="btn btn-outline back-btn"
-              onclick="showHome()">
-        ← بازگشت به صفحه اصلی
-      </button>
-
-    </div>
-
-  </div>
-
-</section>
+</div>
 
 
-<!-- صفحه سرعت -->
+<button
+class="btn btn-primary"
+type="submit"
+style="width:100%">
+ثبت‌نام
+</button>
 
-<section class="page" id="speedPage">
+<div
+id="registerMessage"
+class="form-message">
+</div>
 
-  <div class="container">
+</form>
 
-    <div class="page-box">
+<button
+class="btn btn-outline back"
+onclick="showPage('home')">
+← بازگشت به صفحه اصلی
+</button>
 
-      <h2>⚡ سرعت بالا</h2>
+</div>
 
-      <p>
-        HESAM با استفاده از ساختارهای بهینه و طراحی
-        سبک تلاش می‌کند صفحات سایت با سرعت بالا
-        برای کاربران نمایش داده شوند.
-      </p>
-
-      <p>
-        طراحی واکنش‌گرا باعث می‌شود سایت روی گوشی،
-        تبلت و کامپیوتر تجربه مناسبی داشته باشد.
-      </p>
-
-      <p>
-        همچنین کدهای سایت تا حد امکان سبک طراحی شده‌اند
-        تا زمان بارگذاری کاهش پیدا کند.
-      </p>
-
-      <button class="btn btn-primary"
-              onclick="showHome()">
-        ← بازگشت به سایت
-      </button>
-
-    </div>
-
-  </div>
+</div>
 
 </section>
 
 
-<!-- صفحه امنیت -->
+<!-- SPEED -->
 
-<section class="page" id="securityPage">
+<section id="speed" class="page">
 
-  <div class="container">
+<div class="container">
 
-    <div class="page-box">
+<div class="page-box">
 
-      <h2>🔐 امنیت</h2>
+<h2>
+⚡ سرعت بالا
+</h2>
 
-      <p>
-        امنیت کاربران یکی از مهم‌ترین بخش‌های HESAM است.
-      </p>
+<p>
+HESAM با استفاده از ساختارهای بهینه،
+طراحی سبک و تکنولوژی‌های مدرن تلاش می‌کند
+تجربه‌ای سریع و روان در اختیار کاربران قرار دهد.
+</p>
 
-      <p>
-        اطلاعاتی که در فرم‌های سایت وارد می‌شوند
-        در نسخه فعلی فقط در مرورگر پردازش می‌شوند
-        و برای ذخیره واقعی اطلاعات به سیستم سرور
-        یا پایگاه داده نیاز خواهیم داشت.
-      </p>
+<ul class="info-list">
 
-      <p>
-        در مرحله بعد می‌توانیم سیستم ثبت‌نام را به
-        یک پایگاه داده واقعی متصل کنیم.
-      </p>
+<li>
+⚡ بارگذاری سریع صفحات
+</li>
 
-      <button class="btn btn-primary"
-              onclick="showHome()">
-        ← بازگشت به سایت
-      </button>
+<li>
+📱 بهینه‌سازی برای موبایل
+</li>
 
-    </div>
+<li>
+💻 سازگاری با دسکتاپ
+</li>
 
-  </div>
+<li>
+🚀 ساختار سبک و بهینه
+</li>
+
+</ul>
+
+<button
+class="btn btn-primary back"
+onclick="showPage('home')">
+← بازگشت
+</button>
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- صفحه طراحی -->
+<!-- SECURITY -->
 
-<section class="page" id="designPage">
+<section id="security" class="page">
 
-  <div class="container">
+<div class="container">
 
-    <div class="page-box">
+<div class="page-box">
 
-      <h2>🎨 طراحی مدرن</h2>
+<h2>
+🔐 امنیت تضمینی
+</h2>
 
-      <p>
-        رابط کاربری HESAM با تمرکز روی سادگی،
-        خوانایی و تجربه کاربری طراحی شده است.
-      </p>
+<p>
+امنیت کاربران یکی از بخش‌های مهم HESAM است.
+ساختار سایت با هدف کاهش ریسک‌های امنیتی
+و محافظت بهتر از اطلاعات کاربران طراحی شده است.
+</p>
 
-      <p>
-        تر
+<ul class="info-list">
+
+<li>
+🔒 محافظت از اطلاعات
+</li>
+
+<li>
+🛡️ طراحی با اصول امنیتی مدرن
+</li>
+
+<li>
+🔑 فرم‌های ورود اطلاعات امن‌تر
+</li>
+
+<li>
+✅ توجه به حریم خصوصی کاربران
+</li>
+
+</ul>
+
+<button
+class="btn btn-primary back"
+onclick="showPage('home')">
+← بازگشت
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- DESIGN -->
+
+<section id="design" class="page">
+
+<div class="container">
+
+<div class="page-box">
+
+<h2>
+🎨 طراحی مدرن
+</h2>
+
+<p>
+طراحی HESAM برای ارائه یک تجربه ساده،
+زیبا و کاربردی ساخته شده است.
+رنگ‌بندی سفید و آبی باعث شده رابط کاربری
+تمیز و مدرن باشد.
+</p>
+
+<ul class="info-list">
+
+<li>
+🎨 رابط کاربری مدرن
+</li>
+
+<li>
+📱 سازگار با صفحه موبایل
+</li>
+
+<li>
+💻 سازگار با کامپیوتر
+</li>
+
+<li>
+✨ انیمیشن‌ها و تعاملات ساده
+</li>
+
+</ul>
+
+<button
+class="btn btn-primary back"
+onclick="showPage('home')">
+← بازگشت
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about" class="page">
+
+<div class="container">
+
+<div class="page-box">
+
+<h2>
+ℹ️ درباره HESAM
+</h2>
+
+<p>
+HESAM با هدف ارائه خدمات باکیفیت
+و ایجاد تجربه‌ای متفاوت برای کاربران
+فعالیت خود را آغاز کرده است.
+</p>
+
+<p>
+ما تلاش می‌کنیم با استفاده از طراحی مدرن،
+تکنولوژی و توجه به نیاز کاربران،
+محصولاتی ساده و کاربردی ایجاد کنیم.
+</p>
+
+<button
+class="btn btn-primary back"
+onclick="showPage('home')">
+← بازگشت
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section id="services" class="page">
+
+<div class="container">
+
+<div class="page-box">
+
+<h2>
+🛠️ خدمات HESAM
+</h2>
+
+<ul class="info-list">
+
+<li>
+🌐 طراحی وب‌سایت
+</li>
+
+<li>
+📱 طراحی اپلیکیشن موبایل
+</li>
+
+<li>
+📈 سئو و دیجیتال مارکتینگ
+</li>
+
+<li>
+💬 پشتیبانی و مشاوره
+</li>
+
+</ul>
+
+<button
+class="btn btn-primary back"
+onclick="showPage('home')">
+← بازگشت
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact" class="page">
+
+<div class="container">
+
+<div class="page-box">
+
+<h2>
+📞 تماس با پشتیبانی
+</h2>
+
+<p>
+برای ارتباط با پشتیبانی HESAM
+می‌توانید با شماره زیر تماس بگیرید:
+</p>
+
+<div
+style="
+text-align:center;
+padding:25px;
+background:#f4f8ff;
+border-radius:14px;
+margin:25px 0;
+">
+
+<div style="font-size:13px;color:#65738a">
+شماره پشتیبانی
+</div>
+
+<a
+class="phone"
+href="tel:09020592025">
+09020592025
+</a>
+
+<br><br>
+
+<a
+class="btn btn-primary"
+href="tel:09020592025">
+📞 تماس با پشتیبانی
+</a>
+
+</div>
+
+<button
+class="btn btn-primary"
+onclick="showPage('home')">
+← بازگشت
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<div class="container">
+
+<div class="footer-grid">
+
+<div>
+
+<a
+class="brand"
+href="#"
+onclick="showPage('home');return false;">
+
+<div class="logo">
+<span>H</span>
+</div>
+
+<span>HESAM</span>
+
+</a>
+
+<p>
+HESAM با هدف ارائه بهترین خدمات
+و ایجاد تجربه‌ای متفاوت برای کاربران
+فعالیت خود را آغاز کرده است.
+</p>
+
+</div>
+
+
+<div>
+
+<h3>
+لینک‌های سریع
+</h3>
+
+<a href="#" onclick="showPage('home');return false;">
+خانه
+</a>
+
+<a href="#" onclick="showPage('services');return false;">
+خدمات
+</a>
+
+<a href="#" onclick="showPage('about');return false;">
+درباره ما
+</a>
+
+<a href="#" onclick="showPage('contact');return false;">
+تماس با ما
+</a>
+
+</div>
+
+
+<div>
+
+<h3>
+خدمات ما
+</h3>
+
+<a href="#" onclick="showPage('services');return false;">
+طراحی وب‌سایت
+</a>
+
+<a href="#" onclick="showPage('services');return false;">
+اپلیکیشن موبایل
+</a>
+
+<a href="#" onclick="showPage('services');return false;">
+سئو و دیجیتال مارکتینگ
+</a>
+
+<a href="#" onclick="showPage('services');return false;">
+پشتیبانی و مشاوره
+</a>
+
+</div>
+
+
+<div class="contact">
+
+<h3>
+تماس با ما
+</h3>
+
+<div>
+📞
+<a
+class="phone"
+href="tel:09020592025">
+09020592025
+</a>
+</div>
+
+<div>
+✉️ info@hesam.com
+</div>
+
+<div>
+📍 تهران، ایران
+</div>
+
+</div>
+
+</div>
+
+
+<div class="copyright">
+© 2026 HESAM — تمامی حقوق محفوظ است.
+</div>
+
+</div>
+
+</footer>
+
+
+<button
+class="top"
+onclick="window.scrollTo({top:0,behavior:'smooth'})">
+↑
+</button>
+
+
+<script>
+
+/* نمایش صفحات */
+
+function showPage(pageId){
+
+  const pages = document.querySelectorAll('.page');
+
+  pages.forEach(function(page){
+    page.classList.remove('active');
+  });
+
+  const selected = document.getElementById(pageId);
+
+  if(selected){
+    selected.classList.add('active');
+  }
+
+  window.scrollTo({
+    top:0,
+    behavior:'smooth'
+  });
+
+}
+
+
+/* ثبت نام */
+
+function registerUser(event){
+
+  event.preventDefault();
+
+  const firstName =
+    document.getElementById('firstName').value.trim();
+
+  const lastName =
+    document.getElementById('lastName').value.trim();
+
+  const phone =
+    document.getElementById('phone').value.trim();
+
+  const message =
+    document.getElementById('registerMessage');
+
+
+  if(firstName.length < 2){
+
+    message.style.display='block';
+
+    message.style.background='#fff0f0';
+
+    message.style.color='#b42318';
+
+    message.textContent=
+      'لطفاً نام خود را به‌درستی وارد کنید.';
+
+    return;
+  }
+
+
+  if(lastName.length < 2){
+
+    message.style.display='block';
+
+    message.style.background='#fff0f0';
+
+    message.style.color='#b42318';
+
+    message.textContent=
+      'لطفاً نام خانوادگی خود را به‌درستی وارد کنید.';
+
+    return;
+  }
+
+
+  const phonePattern=/^09[0-9]{9}$/;
+
+  if(!phonePattern.test(phone)){
+
+    message.style.display='block';
+
+    message.style.background='#fff0f0';
+
+    message.style.color='#b42318';
+
+    message.textContent=
+      'لطفاً شماره موبایل ۱۱ رقمی و معتبر وارد کنید.';
+
+    return;
+  }
+
+
+  message.style.display='block';
+
+  message.style.background='#ec
